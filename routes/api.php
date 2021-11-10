@@ -36,6 +36,7 @@ Route::group([
 
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
+    Route::resource('users', 'App\Http\Controllers\UserController');
     Route::resource('types', 'App\Http\Controllers\TypeController');
     Route::resource('types.events', 'App\Http\Controllers\EventController');
     Route::resource('types.events.comments', 'App\Http\Controllers\CommentController');
