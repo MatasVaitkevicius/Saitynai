@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Validator;
 class CommentController extends Controller
 {
     /**
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param  \App\Models\Type  $type

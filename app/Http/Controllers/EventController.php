@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Validator;
 class EventController extends Controller
 {
     /**
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+        $this->middleware('auth.role:admin');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param  \App\Models\Type  $type
