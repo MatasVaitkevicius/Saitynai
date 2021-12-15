@@ -41,6 +41,8 @@ class EventController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:50|string',
             'description' => 'required|string',
+            'isActive' => 'required',
+            'count' => 'required|integer',
         ]);
 
         return $type->events()->create($validated);
@@ -69,10 +71,10 @@ class EventController extends Controller
     public function update(Request $request, Type $type, Event $event)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50|string',
-            'description' => 'required|string',
-            'isActive' => 'required',
-            'count' => 'required|integer',
+            'name' => 'max:50|string',
+            'description' => 'string',
+            'count' => 'integer',
+            'isActive' => 'boolean',
         ]);
 
         $event->update($validated);
