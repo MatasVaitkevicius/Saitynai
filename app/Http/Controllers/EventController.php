@@ -71,6 +71,8 @@ class EventController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:50|string',
             'description' => 'required|string',
+            'isActive' => 'required',
+            'count' => 'required|integer',
         ]);
 
         $event->update($validated);

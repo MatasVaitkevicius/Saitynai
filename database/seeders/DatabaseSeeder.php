@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'email' => "admin@gmail.com",
             'password' => Hash::make('password123'),
             'role' => 'admin',
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('users')->insert([ //1
@@ -27,63 +29,83 @@ class DatabaseSeeder extends Seeder
             'email' => "user@gmail.com",
             'password' => Hash::make('password123'),
             'role' => 'user',
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('types')->insert([ //1
-            'name' => "Type 1",
+            'name' => "Basketball",
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('types')->insert([ //1
-            'name' => "Type 2",
+            'name' => "Football",
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('types')->insert([ //1
-            'name' => "Type 3",
+            'name' => "Handball",
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('events')->insert([ //1
-            'name' => "Type 1 Event 1",
-            'description' => "Test description",
+            'name' => "Basketball at school",
+            'description' => "Let's meet up for some basketball at local school",
+            'isActive' => false,
+            'count' => 5,
             'type_id' => 1,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('events')->insert([ //1
-            'name' => "Type 1 Event 2",
-            'description' => "Test description",
+            'name' => "1on1",
+            'description' => "Wanna improve my game playing 1on1",
+            'isActive' => true,
+            'count' => 10,
             'type_id' => 1,
+            'created_at' => Carbon::now(),
         ]);
 
 
         DB::table('events')->insert([ //1
-            'name' => "Type 2 Event 3",
-            'description' => "Test description",
+            'name' => "Daily Kickoff",
+            'description' => "Everyone welcome at the stadium",
+            'isActive' => true,
+            'count' => 16,
             'type_id' => 2,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('events')->insert([ //1
-            'name' => "Type 3 Event 4",
-            'description' => "Test description",
+            'name' => "Tryouts for Dodgers",
+            'description' => "If you wanna play in a team come and test out your luck",
+            'isActive' => false,
+            'count' => 5,
             'type_id' => 3,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('comments')->insert([ //1
-            'content' => "Event 1 Comment 1",
+            'content' => "Lame organization",
             'event_id' => 1,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('comments')->insert([ //1
-            'content' => "Event 1 Comment 2",
+            'content' => "Let's goooo!",
             'event_id' => 1,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('comments')->insert([ //1
-            'content' => "Event 2 Comment 3",
+            'content' => "I'm lacing my shoes right now, pronto!",
             'event_id' => 2,
+            'created_at' => Carbon::now(),
         ]);
 
         DB::table('comments')->insert([ //1
-            'content' => "Event 3 Comment 4",
+            'content' => "Handball? What's that....",
             'event_id' => 3,
+            'created_at' => Carbon::now(),
         ]);
     }
 }
