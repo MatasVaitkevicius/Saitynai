@@ -65,7 +65,7 @@ class TypeController extends Controller
     public function update(Request $request, Type $type)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50|string',
+            'name' => 'max:50|string',
         ]);
 
         $type->update($validated);

@@ -73,7 +73,7 @@ class CommentController extends Controller
     public function update(Request $request, Type $type, Event $event, Comment $comment)
     {
         $validated = $request->validate([
-            'content' => 'required|max:200|string',
+            'content' => 'max:200|string',
         ]);
 
         $comment->update($validated);
